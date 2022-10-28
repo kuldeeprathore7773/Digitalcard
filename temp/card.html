@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="myImgId" src="" height="125" width="50"/>
+</body>
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+<script>
+     var firebaseConfig = {
+        apiKey: "AIzaSyDit9m9QkW7OGCjBb4WnKEOzyrwvRDFylw",
+        authDomain: "gamweb-640af.firebaseapp.com",
+        projectId: "gamweb-640af",
+        storageBucket: "gamweb-640af.appspot.com",
+        messagingSenderId: "364385896794",
+        appId: "1:364385896794:web:a759260c6d523b6c108b63"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+var storage = firebase.storage();
+var storageRef = storage.ref();
+//urll is the url for image
+storageRef.child(url).getDownloadURL().then(function(url) {
+  // Or inserted into an <img> element:
+  var img = document.getElementById('myImgId');
+  img.src = url;
+}).catch(function(error) {
+  // Handle any errors
+});
+</script>
+</html>
